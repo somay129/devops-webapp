@@ -1,2 +1,42 @@
-<h1>Frontend - Automated Deployment</h1>
-<p>DevOps Lab 2026 - Somay</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somay | DevOps Lab 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="parallax-bg"></div>
+
+    <main class="container">
+        <section class="glass-card">
+            <div class="badge">Live Deployment</div>
+            <h1>EduTech <span class="highlight">Frontend</span></h1>
+            <p class="subtitle">Automated CI/CD Pipeline via GitHub Actions</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="label">Status</span>
+                    <span class="value success">Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Engineer</span>
+                    <span class="value">Somay</span>
+                </div>
+            </div>
+            
+            <button class="btn">View Documentation</button>
+        </section>
+    </main>
+
+    <script>
+        const glow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.pageX + 'px';
+            glow.style.top = e.pageY + 'px';
+        });
+    </script>
+</body>
+</html>
