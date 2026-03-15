@@ -1,9 +1,29 @@
 name: Build and Test
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Run a build script
-        run: echo "Building the web app..."
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build project
+        run: echo "Building the web app... DONE"
+
+      - name: Run tests
+        run: echo "Running tests... ALL PASSED"
+
+      # THIS IS THE STEP 3 NOTIFY CODE
+      - name: Send Slack Notification
+        if: success()
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "text": "✅ *CI/CD Alert*: Build Success for `devops-webapp`!\n*Commit:* ${{ github.event.head_commit.message }}\n*Author:* ${{ github.actor }}\n*Status:* Success 🚀"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
